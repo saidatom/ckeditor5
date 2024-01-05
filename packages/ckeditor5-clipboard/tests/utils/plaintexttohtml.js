@@ -18,6 +18,10 @@ describe( 'plainTextToHtml()', () => {
 		expect( plainTextToHtml( 'x\n\ny\n\nz' ) ).to.equal( '<p>x</p><p>y</p><p>z</p>' );
 	} );
 
+	it( 'new test - turns double line breaks into paragraphs (Linux/Mac EOL style)', () => {
+		expect( plainTextToHtml( 'license\n\ncopyright' ) ).to.equal( '<p>license</p><p>copyright</p>' );
+	} );
+
 	it( 'turns double line breaks into paragraphs (Windows EOL style)', () => {
 		expect( plainTextToHtml( 'x\r\n\r\ny\r\n\r\nz' ) ).to.equal( '<p>x</p><p>y</p><p>z</p>' );
 	} );
